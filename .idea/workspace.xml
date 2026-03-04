@@ -4,33 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12b628a0-55cf-4cb7-8cfb-6548c3747cb2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DBRP.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/thesis/alg/Algorithm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/thesis/alg/Doubles.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/thesis/alg/Doubles1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/thesis/alg/Labelling.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/thesis/alg/MIP1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/thesis/alg/MasterProblem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/thesis/alg/Pricing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/thesis/sim/DBRPState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/thesis/sim/Location.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/thesis/sim/Parameters.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/thesis/sim/Route.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/thesis/sim/SimulTime.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/thesis/sim/Simulation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/thesis/sim/Van.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/thesis/vfx/Draw.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/thesis/vfx/Parameters.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/thesis/vfx/SimulationApp.java" afterDir="false" />
+    <list default="true" id="12b628a0-55cf-4cb7-8cfb-6548c3747cb2" name="Changes" comment="Initial commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/thesis/sim/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/sim/Parameters.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,19 +65,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="DBRP" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="DBRP" />
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -120,6 +83,15 @@
       <option name="presentableId" value="Default" />
       <updated>1771427700556</updated>
     </task>
+    <task id="LOCAL-00001" summary="Initial commit">
+      <option name="closed" value="true" />
+      <created>1772655188463</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1772655188463</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -133,6 +105,10 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -145,6 +121,11 @@
           <url>file://$PROJECT_DIR$/src/Main.java</url>
           <line>53</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/thesis/vfx/Draw.java</url>
+          <line>58</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

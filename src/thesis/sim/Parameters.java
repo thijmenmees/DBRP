@@ -1,19 +1,19 @@
 package thesis.sim;
 public class Parameters {
-    public static final int        numDistricts =  11;
-    public static final double     townSizeX    =   3.0;
-    public static final double     townSizeY    =   3.0;
-    public static final int        numHubs      = 800;
-    public static final int        numVans      =   5;
-    public static final int        numBikes     = 900;
-    public static final double     vanSpeed     =  30;
-    public static final double     bikeSpeed    =  11;
-    public static final double     profitPerMin =   0.25;
-    public static final double     maxDeltaDist =   0.5;
+    public static final int        numDistricts =  11;      // amount of districts in the network
+    public static final double     townSizeX    =   3.0;    // size of the network East to West, in kilometers
+    public static final double     townSizeY    =   3.0;    // size of the network North to South, in kilometers
+    public static final int        numHubs      = 800;      // amount of virtual hubs in the network
+    public static final int        numVans      =   5;      // amount of redistribution vans
+    public static final int        numBikes     = 900;      // amount of bikes in the network
+    public static final double     vanSpeed     =  30;      // average speed of a distribution van, in km/h
+    public static final double     bikeSpeed    =  11;      // average speed of a bike trip, in km/h
+    public static final double     profitPerMin =   0.25;   // revenue per minute of bike rental
+    public static final double     maxDeltaDist =   0.5;    // maximum difference between largest and smallest district (as a fraction of largest district)
     public static final double     planInterval =3600;      // new routeplan every X seconds
     public static final double     baseInterval =  10;      // an arrival every X seconds
     public static final double     progressionX =   1;      // progression through hours and days at what factor
-    public static final double     maxWalkDist  =   0.150;
+    public static final double     maxWalkDist  =   0.150;  // maximum distance walked to a nearby bike, in kilometers. If there is no bike in this range, the revenue is lost.
     public static final double     demandShareD =   0.150;
     public static final int        hubCapacity  = 100;
 
