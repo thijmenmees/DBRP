@@ -24,10 +24,16 @@ public class DBRPState {
         hubs = new Location[numHubs];
         dist = new Double[numHubs][numHubs];
         nearbyHubs = new LinkedList[numHubs];
+        for (int i = 0; i < numHubs; i++) {
+            nearbyHubs[i] = new LinkedList<>();
+        }
         vanDist = new Double[numVans][numHubs];
         distrDist = new Double[Parameters.numDistricts][numHubs];
         districts = new Location[Parameters.numDistricts];
         hubsInDistrict = new LinkedList[Parameters.numDistricts];
+        for (int i = 0; i < Parameters.numDistricts; i++) {
+            hubsInDistrict[i] = new LinkedList<>();
+        }
         distsizes = new int[Parameters.numDistricts];
         randomState(new Random(1));
     }

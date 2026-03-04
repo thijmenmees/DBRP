@@ -31,6 +31,7 @@ public class SimulationApp {
     public static void render(Canvas canvas, Simulation simul) {
         GraphicsContext gc = canvas.getGraphicsContext2D();
         Draw.clear(canvas);
+        Draw.trips(gc, simul.getOngoingBikeTrips(), simul.getsTime());
         Draw.hubs(gc, simul.getDbrp());
         Draw.districts(gc, simul.getDbrp());
         Draw.scalebar(canvas);

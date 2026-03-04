@@ -11,7 +11,7 @@ public class Parameters {
     public static final double     profitPerMin =   0.25;
     public static final double     maxDeltaDist =   0.5;
     public static final double     planInterval =3600;      // new routeplan every X seconds
-    public static final double     baseInterval =  60;      // an arrival every X seconds
+    public static final double     baseInterval =  10;      // an arrival every X seconds
     public static final double     progressionX =   1;      // progression through hours and days at what factor
     public static final double     maxWalkDist  =   0.150;
     public static final double     demandShareD =   0.150;

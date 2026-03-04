@@ -52,6 +52,12 @@ public class Simulation {
             nextPlanningTime += Parameters.planInterval;
         }
 
+        if (!ongoingBikeTrips.isEmpty() && ongoingBikeTrips.peekLast().getDestinationTime().isBefore(sTime)) {
+            Trip temptrip = ongoingBikeTrips.pollLast();
+            System.out.println("Bike arrives at location.");
+            temptrip.unload();
+        }
+
         if (simulatedTime >= nextArrivalTime) {
             int dep = getDepartureDistrict(new Random());
             System.out.println("Departure at district " + dbrp.getDistricts()[dep].district);
@@ -63,7 +69,7 @@ public class Simulation {
             System.out.println("Arrival at district " + dbrp.getDistricts()[arr].district);
             int hub3 = getDestinationLocation(arr, new Random());
             System.out.println("Arrival at hub " + hub3);
-            //moveBike(hub1, hub2, hub3); // should check whether there is actually a bike
+            moveBike(hub1, hub2, hub3); // should check whether there is actually a bike
             nextArrivalTime += getNextArrivalTime();
         }
 
@@ -123,7 +129,15 @@ public class Simulation {
         Trip newTrip = new Trip();
         newTrip.setBikeTrip(sTime, bikeLocation, destination, dbrp);
         Iterator<Trip> iter = ongoingBikeTrips.iterator();
-        int
+        int count = 0;
+        while (iter.hasNext()) {
+            Trip temptrip = iter.next();
+            if (temptrip.getDestinationTime().isBefore(newTrip.getDestinationTime())) {
+                break;
+            }
+            count++;
+        }
+        ongoingBikeTrips.add(count, newTrip);
 
         return 0;
     }
@@ -140,5 +154,13 @@ public class Simulation {
 
     public DBRPState getDbrp() {
         return dbrp;
+    }
+
+    public LinkedList<Trip> getOngoingBikeTrips() {
+        return ongoingBikeTrips;
+    }
+
+    public SimulTime getsTime() {
+        return sTime;
     }
 }

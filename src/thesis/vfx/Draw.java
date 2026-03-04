@@ -3,9 +3,11 @@ package thesis.vfx;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import thesis.sim.DBRPState;
-import thesis.sim.Location;
+import thesis.sim.*;
 import thesis.sim.Parameters;
+
+import java.util.Iterator;
+import java.util.LinkedList;
 
 public final class Draw {
     private Draw() {
@@ -43,6 +45,27 @@ public final class Draw {
         gc.fillRect(canvas.getWidth()-scaleX(2)-10, canvas.getHeight()-20, scaleX(2), 10);
         gc.setFill(Color.WHITE);
         gc.fillRect(canvas.getWidth()-scaleX(2)-9, canvas.getHeight()-19, scaleX(1)-1, 8);
+    }
+
+    public static void trip(GraphicsContext gc, Trip trip, SimulTime sTime) {
+        Location origin = trip.getOrigin();
+        Location destination = trip.getDestination();
+        gc.strokeLine(scaleX(origin.xCoord), scaleX(origin.yCoord), scaleX(destination.xCoord), scaleX(destination.yCoord));
+        double totalTripTime = trip.getDestinationTime().hoursBetween(trip.getDepartureTime());
+        double elapsedTripTime = sTime.hoursBetween(trip.getDepartureTime());
+        double share = elapsedTripTime / totalTripTime;
+        double tempX = (1-share) * origin.xCoord + share * destination.xCoord;
+        double tempY = (1-share) * origin.yCoord + share * destination.yCoord;
+        gc.fillOval(scaleX(tempX) - 3, scaleX(tempY) - 3, 6, 6);
+    }
+
+    public static void trips(GraphicsContext gc, LinkedList<Trip> ongoingBikeTrips, SimulTime sTime) {
+        gc.setStroke(Color.GREEN);
+        gc.setFill(Color.DARKGREEN);
+        Iterator<Trip> iter = ongoingBikeTrips.iterator();
+        while (iter.hasNext()) {
+            trip(gc, iter.next(), sTime);
+        }
     }
 
     private static double scaleX(double coord) {

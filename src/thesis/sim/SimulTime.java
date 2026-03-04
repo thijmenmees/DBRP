@@ -72,6 +72,20 @@ public class SimulTime {
         this.hourProgression = correctedTime / 3600;
     }
 
+    public double hoursBetween(SimulTime other) {
+        double deze = 0.0;
+        deze += 7*24* week;
+        deze +=   24* day;
+        deze +=       hour;
+        deze +=       hourProgression;
+        double andere = 0.0;
+        andere += 7*24* other.week;
+        andere +=   24* other.day;
+        andere +=       other.hour;
+        andere +=       other.hourProgression;
+        return deze - andere;
+    }
+
     public SimulTime(SimulTime other) {
         this.week = other.week;
         this.day = other.day;
