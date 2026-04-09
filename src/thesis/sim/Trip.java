@@ -23,6 +23,20 @@ public class Trip {
         this.destinationTime.progress(travelhours);
     }
 
+    public void setVanTrip(SimulTime departureTime, Location o, Location d, int delivery) {
+        this.departureTime = new SimulTime(departureTime);
+        this.origin = o;
+        this.destination = d;
+        this.isDepositTrip = true;
+        if (delivery < 0) { this.isDepositTrip = false; }
+        this.load = delivery; // negative load for pickup trips
+        double distance = o.distanceTo(d);
+        double travelhours = distance / Parameters.vanSpeed;
+        // TODO travelhours += Math.abs(delivery) * Parameters.unloadTime // in hours
+        this.destinationTime = new SimulTime(departureTime);
+        this.destinationTime.progress(travelhours);
+    }
+
     public SimulTime getDestinationTime() {
         return destinationTime;
     }
@@ -39,14 +53,17 @@ public class Trip {
     }
 
     public boolean unload() {
+        boolean ret = true;
         if (isDepositTrip) {
-            boolean ret = true;
             for (int i = 0; i < load; i++) {
                 ret = destination.deposit();
             }
-            load = 0;
-            return ret;
+        } else {
+            for (int i = 0; i > load; i--) {
+                ret = destination.draw();
+            }
         }
-        return true;
+        load = 0;
+        return ret;
     }
 }

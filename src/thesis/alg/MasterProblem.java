@@ -1,11 +1,11 @@
 package thesis.alg;
 import thesis.sim.Route;
 public interface MasterProblem {
-    void initRoutes();
+    boolean initRoutes();
 
-    void setDoubles(Doubles doubles);
+    boolean setDoubles(Doubles doubles);
 
-    void optimize();
+    double optimize();
 
     boolean getStop();
 

@@ -44,6 +44,15 @@ public class SimulTime {
         return (this.hourProgression < other.getHourProgression());
     }
 
+    public boolean isWeekend() {
+        if (this.day >= 5) {
+            return true;
+        } else if (this.day == 4 && this.hour >= 18) {
+            return true;
+        }
+        return false;
+    }
+
     public void progress(int week, int day, int hour) {
         this.hour += hour;
         day += Math.floorDiv(this.hour, 24);
@@ -61,8 +70,8 @@ public class SimulTime {
         progress(0,0,actualhours);
     }
 
-    public void setCustom(double simulatedTime) {
-        double correctedTime = simulatedTime * Parameters.progressionX;
+    public void setCustom(double simulatedSeconds) {
+        double correctedTime = simulatedSeconds * Parameters.progressionX;
         this.week = Math.floorDiv((int) correctedTime, 3600*24*7);
         correctedTime %= 3600*24*7;
         this.day  = Math.floorDiv((int) correctedTime, 3600*24);

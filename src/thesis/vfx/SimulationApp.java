@@ -35,6 +35,7 @@ public class SimulationApp {
         Draw.hubs(gc, simul.getDbrp());
         Draw.districts(gc, simul.getDbrp());
         Draw.scalebar(canvas);
+        Draw.clock(canvas, simul.getsTime());
     }
 
     /*

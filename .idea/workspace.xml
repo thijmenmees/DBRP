@@ -4,9 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12b628a0-55cf-4cb7-8cfb-6548c3747cb2" name="Changes" comment="Initial commit">
+    <list default="true" id="12b628a0-55cf-4cb7-8cfb-6548c3747cb2" name="Changes" comment="comments added to sim/parameters">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/thesis/alg/Demand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/thesis/alg/Parameters.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBRP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DBRP.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/thesis/alg/Algorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/alg/Algorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/thesis/alg/MIP1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/alg/MIP1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/thesis/alg/MasterProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/alg/MasterProblem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/thesis/sim/DBRPState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/sim/DBRPState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/thesis/sim/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/sim/Location.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/thesis/sim/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/sim/Parameters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/thesis/sim/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/sim/Route.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/thesis/sim/SimulTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/sim/SimulTime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/thesis/sim/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/sim/Simulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/thesis/sim/Trip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/sim/Trip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/thesis/vfx/Draw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/vfx/Draw.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/thesis/vfx/SimulationApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/vfx/SimulationApp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +41,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
 }</component>
@@ -42,8 +60,9 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Programmas/Gluon/javafx-sdk-21.0.10/lib&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Programmas/IBM/ILOG/CPLEX_Studio2211/cplex/lib&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
@@ -91,7 +110,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772655188463</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="comments added to sim/parameters">
+      <option name="closed" value="true" />
+      <created>1772667227686</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1772667227687</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -107,7 +134,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="comments added to sim/parameters" />
+    <option name="LAST_COMMIT_MESSAGE" value="comments added to sim/parameters" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -123,9 +151,37 @@
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/thesis/vfx/Draw.java</url>
-          <line>58</line>
-          <option name="timeStamp" value="12" />
+          <url>file://$PROJECT_DIR$/src/thesis/alg/Demand.java</url>
+          <line>79</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/thesis/alg/Demand.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/thesis/alg/Demand.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/thesis/alg/Demand.java</url>
+          <line>85</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/thesis/alg/Demand.java</url>
+          <line>95</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/thesis/alg/Demand.java</url>
+          <line>96</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

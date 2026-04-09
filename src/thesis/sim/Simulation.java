@@ -12,11 +12,14 @@ public class Simulation {
     private volatile DBRPState dbrp = new DBRPState();
 
     private boolean running = true;
+    private boolean algorithm_is_running = false;
+    private SimulTime sTime = new SimulTime(0,0,0);
+    private SimulTime endTime = new SimulTime(Parameters.simulWindow, 0,0);
     private double simulatedTime = 0;
     private double nextPlanningTime = Parameters.planInterval;
+    private double nextHourTime = 3600.0 / Parameters.progressionX;
     private double nextArrivalTime = getNextArrivalTime();
     private LinkedList<Trip> ongoingBikeTrips = new LinkedList<>();
-    private SimulTime sTime = new SimulTime(0,0,0);
     private final ExecutorService plannerExecutor = Executors.newSingleThreadExecutor();
     public void start() {
         Thread simThread = new Thread(this::runLoop);
@@ -42,14 +45,19 @@ public class Simulation {
     }
 
     private void update(double deltaTime) {
-        simulatedTime += deltaTime; // in seconds
-        sTime.setCustom(simulatedTime);
 
         // Trigger planner at interval
         if (simulatedTime >= nextPlanningTime) {
-            requestNewPlan(); // runs Alg
 
+            algorithm_is_running = true;
+            requestNewPlan(); // runs Alg
             nextPlanningTime += Parameters.planInterval;
+        }
+
+        // Update time for simulation
+        if (!algorithm_is_running) {
+            simulatedTime += deltaTime; // in seconds
+            sTime.setCustom(simulatedTime);
         }
 
         if (!ongoingBikeTrips.isEmpty() && ongoingBikeTrips.peekLast().getDestinationTime().isBefore(sTime)) {
@@ -59,7 +67,7 @@ public class Simulation {
         }
 
         if (simulatedTime >= nextArrivalTime) {
-            int dep = getDepartureDistrict(new Random());
+            int dep = getDepartureDistrict(new Random(), true);
             System.out.println("Departure at district " + dbrp.getDistricts()[dep].district);
             int hub1 = getDepartureLocation(dep, new Random());
             System.out.println("Departure at hub " + hub1);
@@ -70,24 +78,34 @@ public class Simulation {
             int hub3 = getDestinationLocation(arr, new Random());
             System.out.println("Arrival at hub " + hub3);
             moveBike(hub1, hub2, hub3); // should check whether there is actually a bike
-            nextArrivalTime += getNextArrivalTime();
+            nextArrivalTime += getNextArrivalTime(); // TODO make this random
+        }
+
+        if (simulatedTime >= nextHourTime) {
+            nextHourTime += 3600 / Parameters.progressionX;
+            nextArrivalTime = simulatedTime + getNextArrivalTime();
+        }
+
+        if (endTime.isBefore(sTime)) {
+            running = false;
+            displayStats();
         }
 
         // Perform a simulation-step
         // simulate(dbrp, deltaTime);
     }
 
-    private int getDepartureDistrict(Random rand) {
+    private int getDepartureDistrict(Random rand, boolean isDeparture) {
         double totalFreq = 0.0;
         for (int i = 0; i < Parameters.numDistricts; i++) {
-            totalFreq += Parameters.factorDistr(i);
+            totalFreq += Parameters.factorDepartureArrival(i, sTime)[isDeparture ? 0 : 1];
         }
         double randFreq = rand.nextDouble(totalFreq);
         double cumulFreq = 0.0;
         int ret = -1;
         while (cumulFreq < randFreq) {
             ret++;
-            cumulFreq += Parameters.factorDistr(dbrp.getDistricts()[ret].district);
+            cumulFreq += Parameters.factorDepartureArrival(dbrp.getDistricts()[ret].district, sTime)[isDeparture ? 0 : 1];
         }
         return ret;
     }
@@ -114,10 +132,10 @@ public class Simulation {
     }
 
     private int getDestinationDistrict(Random rand) {
-        return getDepartureDistrict(rand); // TODO aanpassen naar werkelijkheid
+        return getDepartureDistrict(rand, false);
     }
     private int getDestinationLocation(int district, Random rand) {
-        return getDepartureLocation(district, rand); // TODO aanpassen naar werkelijkheid
+        return getDepartureLocation(district, rand);
     }
     private double moveBike(int origin, int bikeLocation, int destination) {
         if (bikeLocation < 0) {
@@ -142,13 +160,18 @@ public class Simulation {
         return 0;
     }
 
+    private void displayStats() {
+        System.out.println("Simulation finished");
+    }
+
     private double getNextArrivalTime() {
-        return Parameters.baseInterval;
+        return 3600 / Parameters.factorBaseline(sTime); // TODO random exponential maken
     }
 
     private void requestNewPlan() {
         plannerExecutor.submit(() -> {
-            dbrp = newRunPlan(dbrp);
+            dbrp = newRunPlan(dbrp, sTime);
+            algorithm_is_running = false;
         });
     }
 

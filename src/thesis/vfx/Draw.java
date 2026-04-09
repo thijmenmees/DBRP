@@ -68,6 +68,14 @@ public final class Draw {
         }
     }
 
+    public static void clock(Canvas canvas, SimulTime sTime) {
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        String time = String.valueOf(sTime.getHour()) + ":" + String.valueOf( (int) (sTime.getHourProgression() * 60) ) + ":" + String.valueOf( (int) ((sTime.getHourProgression() * 3600) % 60) );
+        String datetime = "Week " + String.valueOf(sTime.getWeek() + 1) + ", Day " + String.valueOf(sTime.getDay() + 1) + ", Time " + time;
+        gc.setStroke(Color.WHITE);
+        gc.strokeText(datetime, canvas.getWidth() - scaleX(1) - 9, canvas.getHeight()-11);
+    }
+
     private static double scaleX(double coord) {
         return coord * thesis.vfx.Parameters.screenHeight / Parameters.townSizeY;
     }

@@ -41,10 +41,10 @@ public class DBRPState {
     public void randomState(Random rand) {
         // Generate locations
         for (int i = 0; i < Parameters.numDistricts; i++) {
-            districts[i] = new Location(Parameters.townSizeX, Parameters.townSizeY, 0, rand);
+            districts[i] = new Location(Parameters.townSizeX, Parameters.townSizeY, 0, rand, i);
         }
         for (int i = 0; i < Parameters.numHubs; i++) {
-            hubs[i] = new Location(Parameters.townSizeX, Parameters.townSizeY, Parameters.hubCapacity, rand);
+            hubs[i] = new Location(Parameters.townSizeX, Parameters.townSizeY, Parameters.hubCapacity, rand, i);
         }
         calcDistances();
         distributeBikes(rand);
@@ -95,7 +95,7 @@ public class DBRPState {
     private double bestRatio;
 
     public void redistributeDistricts(Random rand) {
-        districts[smallestDistr] = new Location(Parameters.townSizeX, Parameters.townSizeY, 0, rand);
+        districts[smallestDistr] = new Location(Parameters.townSizeX, Parameters.townSizeY, 0, rand, smallestDistr);
         calcDistrDist(smallestDistr);
         calcDistrSizes();
 
@@ -194,10 +194,15 @@ public class DBRPState {
         }
     }
 
+    public int getDistsize(int i) {
+        return distsizes[i];
+    }
+
     private double calcEuclid(Location origin, Location destination) {
-        double xdist = (origin.xCoord - destination.xCoord);
-        double ydist = (origin.yCoord - destination.yCoord);
-        return Math.sqrt(Math.pow(xdist, 2) + Math.pow(ydist, 2));
+//        double xdist = (origin.xCoord - destination.xCoord);
+//        double ydist = (origin.yCoord - destination.yCoord);
+//        return Math.sqrt(Math.pow(xdist, 2) + Math.pow(ydist, 2));
+        return origin.distanceTo(destination);
     }
     private double calcManhattan(Location origin, Location destination) {
         double xdist = Math.abs(origin.xCoord - destination.xCoord);
