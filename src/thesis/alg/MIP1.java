@@ -128,15 +128,44 @@ public class MIP1 implements MasterProblem {
 
     @Override
     public void addRoutes(Route[] pricingRoutes) {
-        for (int n = 0; n < Parameters.numVans; n++) {
-            // Add to routes log
-            if (Objects.isNull(pricingRoutes[n])) {
-                continue;
+        try {
+            // Remove old objective
+            cplex.remove(trgt);
+            for (int n = 0; n < Parameters.numVans; n++) {
+                // Add to routes log
+                if (Objects.isNull(pricingRoutes[n])) {
+                    continue;
+                }
+                int r = x_nr[n].size();
+                route_nr[n].add(pricingRoutes[n]);
+
+                // Create decision variable x_nr
+                x_nr[n].add(cplex.numVar(0, 1, "x_" + n + "_" + r));
+                // TODO Add route profitability p_nr
+                // Add route costs c_nr
+                c_nr[n].add(pricingRoutes[n].getDistance() * thesis.alg.Parameters.costPerVanKm);
+                // Construct row for binary visits matrix A_nrv
+                A_nrv[n].add(pricingRoutes[n].getVisitsRow());
+
+                // Update objective
+                target = cplex.sum(target, cplex.prod( p_nr[n].get(r) - c_nr[n].get(r), x_nr[n].get(r) ) );
+                // Change constraints
+                cplex.remove(c2[n]);
+                c2L[n] = cplex.sum(c2L[n], x_nr[n].get(r));
+                cplex.addLe(c2L[n], 1, "c2_" + n);
+                for (int v = 0; v < Parameters.numHubs; v++) {
+                    if (A_nrv[n].get(r)[v] == 1) {
+                        cplex.remove(c3[v]);
+                        c3L[v] = cplex.sum(c3L[v], x_nr[n].get(r));
+                        c3[v] = cplex.addLe(c3L[v], 1, "c3_" + v);
+                    }
+                }
             }
-            route_nr[n].add(pricingRoutes[n]);
+            // Reinstate objective
+            trgt = cplex.addMaximize(target);
 
-            // Create decision variable x_nr
-
+        } catch (IloException e) {
+            System.out.print(e.getStackTrace());
         }
     }
 }

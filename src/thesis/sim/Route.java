@@ -1,4 +1,5 @@
 package thesis.sim;
+
 public class Route {
     private Trip[]    trips;
     public final int  length;
@@ -19,5 +20,22 @@ public class Route {
             previousLoc = locs[i];
             previousTime = trips[i].getDestinationTime();
         }
+    }
+
+    public double getDistance() {
+        double ret = 0.0;
+        for (int i = 0; i < this.length; i++) {
+            ret += trips[i].getDistance();
+        }
+        return ret;
+    }
+
+    public int[] getVisitsRow() {
+        int[] ret = new int[Parameters.numHubs];
+        for (int i = 0; i < this.length; i++) {
+            int v = trips[i].getDestination().indexOf;
+            ret[v] = 1;
+        }
+        return ret;
     }
 }

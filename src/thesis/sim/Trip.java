@@ -5,6 +5,7 @@ public class Trip {
     private SimulTime destinationTime;
     private Location origin;
     private Location destination;
+    private double distance;
     private boolean isDepositTrip;
     private int load;
     public Trip() {
@@ -17,7 +18,7 @@ public class Trip {
         this.destination = dbrp.getHubs()[d];
         this.isDepositTrip = true;
         this.load = 1;
-        double distance = dbrp.getDistance(o,d);
+        this.distance = dbrp.getDistance(o,d);
         double travelhours = distance / Parameters.bikeSpeed;
         this.destinationTime = new SimulTime(departureTime);
         this.destinationTime.progress(travelhours);
@@ -30,7 +31,7 @@ public class Trip {
         this.isDepositTrip = true;
         if (delivery < 0) { this.isDepositTrip = false; }
         this.load = delivery; // negative load for pickup trips
-        double distance = o.distanceTo(d);
+        this.distance = o.distanceTo(d);
         double travelhours = distance / Parameters.vanSpeed;
         // TODO travelhours += Math.abs(delivery) * Parameters.unloadTime // in hours
         this.destinationTime = new SimulTime(departureTime);
@@ -65,5 +66,9 @@ public class Trip {
         }
         load = 0;
         return ret;
+    }
+
+    public double getDistance() {
+        return distance;
     }
 }

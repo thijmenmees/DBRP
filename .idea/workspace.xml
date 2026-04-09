@@ -4,24 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="12b628a0-55cf-4cb7-8cfb-6548c3747cb2" name="Changes" comment="comments added to sim/parameters">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/thesis/alg/Demand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/thesis/alg/Parameters.java" afterDir="false" />
+    <list default="true" id="12b628a0-55cf-4cb7-8cfb-6548c3747cb2" name="Changes" comment="MIP Stage funtional">
+      <change afterPath="$PROJECT_DIR$/src/thesis/alg/Label.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DBRP.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DBRP.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/thesis/alg/Algorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/alg/Algorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/thesis/alg/Labelling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/alg/Labelling.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/thesis/alg/MIP1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/alg/MIP1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/thesis/alg/MasterProblem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/alg/MasterProblem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/thesis/sim/DBRPState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/sim/DBRPState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/thesis/sim/Location.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/sim/Location.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/thesis/sim/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/sim/Parameters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/thesis/alg/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/alg/Parameters.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/thesis/sim/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/sim/Route.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/thesis/sim/SimulTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/sim/SimulTime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/thesis/sim/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/sim/Simulation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/thesis/sim/Trip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/sim/Trip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/thesis/vfx/Draw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/vfx/Draw.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/thesis/vfx/SimulationApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/vfx/SimulationApp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +108,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772667227687</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="MIP Stage funtional">
+      <option name="closed" value="true" />
+      <created>1775731945744</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1775731945744</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -135,7 +133,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="comments added to sim/parameters" />
-    <option name="LAST_COMMIT_MESSAGE" value="comments added to sim/parameters" />
+    <MESSAGE value="MIP Stage funtional" />
+    <option name="LAST_COMMIT_MESSAGE" value="MIP Stage funtional" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
