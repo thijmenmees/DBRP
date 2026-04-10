@@ -13,9 +13,11 @@ public class Parameters {
     public static final int        numHubs      = 800;      // amount of virtual hubs in the network
     public static final int        numVans      =   5;      // amount of redistribution vans
     public static final int        numBikes     = 900;      // amount of bikes in the network
-    public static final double     vanSpeed     =  30;      // average speed of a distribution van, in km/h
+    public static final double     unloadTime   =   2/60;   // amount of hours it takes to unload a bike
+    public static final double     vanSpeed     =  20;      // average speed of a distribution van, in km/h
     public static final double     bikeSpeed    =  11;      // average speed of a bike trip, in km/h
     public static final double     profitPerMin =   0.25;   // revenue per minute of bike rental
+    public static final double     profitPerRide=   1.70;   // revenue per total bike rental
     public static final double     maxDeltaDist =   0.5;    // maximum difference between largest and smallest district (as a fraction of largest district)
     public static final double     progressionX =  30;      // progression through hours and days at what factor
     public static final double     planInterval = 600 / progressionX;      // new routeplan every X seconds

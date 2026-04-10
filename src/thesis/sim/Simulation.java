@@ -139,9 +139,10 @@ public class Simulation {
     }
     private double moveBike(int origin, int bikeLocation, int destination) {
         if (bikeLocation < 0) {
-            double distance = dbrp.getDistance(origin, destination);
-            double travelminutes = distance / Parameters.bikeSpeed * 60;
-            double tripRevenue = travelminutes * Parameters.profitPerMin;
+            // double distance = dbrp.getDistance(origin, destination);
+            // double travelminutes = distance / Parameters.bikeSpeed * 60;
+            // double tripRevenue = travelminutes * Parameters.profitPerMin;
+            double tripRevenue = Parameters.profitPerRide;
             return tripRevenue;
         }
         Trip newTrip = new Trip();

@@ -214,6 +214,14 @@ public class DBRPState {
         return hubs;
     }
 
+    public Van[] getVans() {
+        return vans;
+    }
+
+    public Van getVan(int index) {
+        return vans[index];
+    }
+
     public Location[] getDistricts() {
         return districts;
     }
@@ -227,6 +235,10 @@ public class DBRPState {
     }
     public double getDistance(int origin, int destination) {
         return dist[origin][destination];
+    }
+
+    public double getVanDistance(int van, int destination) {
+        return vanDist[van][destination];
     }
 
     public DBRPState(DBRPState other) {

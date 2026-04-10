@@ -6,9 +6,11 @@ public interface Pricing {
 
     void setDoubles(Doubles doubles);
 
+    void setSupplyDemand(double[] s_vt, double[] d_vt);
+
     boolean getStop();
 
-    void run();
+    void run(int vanIndex);
 
     Route[] getRoutes();
 }

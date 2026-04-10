@@ -33,7 +33,7 @@ public class Trip {
         this.load = delivery; // negative load for pickup trips
         this.distance = o.distanceTo(d);
         double travelhours = distance / Parameters.vanSpeed;
-        // TODO travelhours += Math.abs(delivery) * Parameters.unloadTime // in hours
+        travelhours += Math.abs(delivery) * Parameters.unloadTime; // in hours
         this.destinationTime = new SimulTime(departureTime);
         this.destinationTime.progress(travelhours);
     }
