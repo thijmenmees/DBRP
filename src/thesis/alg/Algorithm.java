@@ -33,13 +33,18 @@ public class Algorithm {
         mp.initRoutes();
         labelling.setState(dbrp);
         labelling.setDoubles(duals);
+        labelling.setStartTime(sTime);
         labelling.setSupplyDemand(s_vt, d_vt);
         mp.optimize();
 
         while (!mp.getStop()) {
             mp.setDoubles(duals);
-            labelling.run();
-            Route[] newRoutes = labelling.getRoutes();
+            Route[] newRoutes = new Route[Parameters.numVans];
+            for (int n = 0; n < Parameters.numVans; n++) {
+                labelling.run(n);
+                newRoutes[n] = labelling.getRoute();
+            }
+
             mp.addRoutes(newRoutes);
             mp.optimize();
         }

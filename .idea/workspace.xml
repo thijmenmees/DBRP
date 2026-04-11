@@ -7,14 +7,11 @@
     <list default="true" id="12b628a0-55cf-4cb7-8cfb-6548c3747cb2" name="Changes" comment="MIP Stage funtional">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/thesis/alg/Algorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/alg/Algorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/thesis/alg/Label.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/alg/Label.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/thesis/alg/Labelling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/alg/Labelling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/thesis/alg/MIP1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/alg/MIP1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/thesis/alg/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/alg/Parameters.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/thesis/alg/Pricing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/alg/Pricing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/thesis/sim/DBRPState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/sim/DBRPState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/thesis/sim/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/sim/Parameters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/thesis/sim/Simulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/sim/Simulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/thesis/sim/Trip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/sim/Trip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/thesis/sim/Route.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/thesis/sim/Route.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

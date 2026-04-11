@@ -25,6 +25,7 @@ public class MIP1 implements MasterProblem {
     private IloNumExpr[]  c3L;
     private IloNumExpr[]  c3R;
     private IloRange[] c3;
+    private int pricingcount;
 
     @Override
     public boolean initRoutes() {
@@ -80,7 +81,7 @@ public class MIP1 implements MasterProblem {
                 }
                 c3[v] = cplex.addLe(c3L[v], 1, "c3_" + v);
             }
-
+            pricingcount = 0;
             return true;
         } catch (IloException e) {
             System.out.print(e.getStackTrace());
@@ -123,12 +124,17 @@ public class MIP1 implements MasterProblem {
 
     @Override
     public boolean getStop() {
+        pricingcount ++;
+        if (pricingcount > thesis.alg.Parameters.maxPricings) {
+            return true;
+        }
         return false;
     }
 
     @Override
     public void addRoutes(Route[] pricingRoutes) {
         try {
+            boolean hasNewRoute = false;
             // Remove old objective
             cplex.remove(trgt);
             for (int n = 0; n < Parameters.numVans; n++) {
@@ -136,6 +142,7 @@ public class MIP1 implements MasterProblem {
                 if (Objects.isNull(pricingRoutes[n])) {
                     continue;
                 }
+                hasNewRoute = true;
                 int r = x_nr[n].size();
                 route_nr[n].add(pricingRoutes[n]);
 
@@ -163,7 +170,9 @@ public class MIP1 implements MasterProblem {
             }
             // Reinstate objective
             trgt = cplex.addMaximize(target);
-
+            if (!hasNewRoute) {
+                pricingcount = thesis.alg.Parameters.maxPricings; // No new route added, stop CG
+            }
         } catch (IloException e) {
             System.out.print(e.getStackTrace());
         }
